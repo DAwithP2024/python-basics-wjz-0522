@@ -32,16 +32,18 @@ products = {
 
 
 def display_sorted_products(products_list, sort_order):
-    if sort_order.lower() == 'asc' or "1":
+    if sort_order.lower() == 'asc' or sort_order == '1':  
         sorted_products = sorted(products_list, key=lambda x: x[1])
-    elif sorted_products.lower()=='desc' or "2":
-         sorted_products= sorted(products_list, key=lambda x: x[1], reverse=True)
+    elif sort_order.lower() == 'desc' or sort_order == '2':  
+        sorted_products = sorted(products_list, key=lambda x: x[1], reverse=True)
     else:
-        print("invailid order")
+        print("Invalid order") 
+        return [] 
     for index, product in enumerate(sorted_products, 1):
         print(f"{index}. {product[0]} - ${product[1]}")
-    
+
     return sorted_products
+
 
 
 def display_products(products_list):
