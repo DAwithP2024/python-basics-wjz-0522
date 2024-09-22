@@ -64,12 +64,16 @@ def display_cart(cart):
     if not cart:
         print("Your cart is empty.")
     else:
-        print("Your cart contains:")
+        output_lines = []
+        output_lines.append("Your cart contains:")
         for product, price, quantity in cart:
-            print(f"{product} - ${price} x {quantity} = ${price * quantity}")
+            output_lines.append(f"{product} - ${price} x {quantity} = ${price * quantity}")
         total_cost = sum(price * quantity for _, price, quantity in cart)
-        print(f"Total: ${total_cost}")
+        output_lines.append(f"Total cost: ${total_cost}")
+        print("\n".join(output_lines))
+    
     return total_cost
+
 
 
 def generate_receipt(name, email, cart, total_cost, address):
