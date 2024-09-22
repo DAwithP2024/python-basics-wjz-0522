@@ -52,7 +52,16 @@ def display_products(products_list):
 def display_categories():
     for index, category in enumerate(products.keys(), 1):
         print(f"{index}. {category}")
-    return 0  
+
+    try:
+        category_choice = int(input("\nSelect a category (number): "))
+  
+        if category_choice in range(1, len(products) + 1):
+            return category_choice 
+            
+    except ValueError:
+        return None  
+
 
 
 
